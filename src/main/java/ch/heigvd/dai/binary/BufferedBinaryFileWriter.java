@@ -11,6 +11,17 @@ public class BufferedBinaryFileWriter implements Writable {
     @Override
     public void write(String filename, int sizeInBytes) throws IOException {
         // TODO : implement this method
-        throw new UnsupportedOperationException("Not implemented yet");
+        try (BufferedOutputStream bos = new BufferedOutputStream(new FileOutputStream(filename))) {
+
+            for (int i = 0; i < 255; i++) {
+                bos.write(i);
+            }
+
+        } catch (IOException e) {
+            // Handle exception
+            System.out.println("Exception: " + e);
+        }
+
+        // throw new UnsupportedOperationException("Not implemented yet");
     }
 }
